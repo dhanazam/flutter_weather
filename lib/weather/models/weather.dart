@@ -6,18 +6,19 @@ import 'package:weather_repository/weather_repository.dart'
 
 part 'weather.g.dart';
 
-enum TemperatureUnits { fahrenheit, celcius }
+enum TemperatureUnits { fahrenheit, celsius }
 
 extension TemperatureUnitsX on TemperatureUnits {
   bool get isFahrenheit => this == TemperatureUnits.fahrenheit;
-  bool get isCelsius => this == TemperatureUnits.celcius;
+  bool get isCelsius => this == TemperatureUnits.celsius;
 }
 
 @JsonSerializable()
 class Temperature extends Equatable {
   const Temperature({required this.value});
 
-  factory Temperature.fromJson(Map<String, dynamic> json) => _$TemperatureFromJson(json);
+  factory Temperature.fromJson(Map<String, dynamic> json) =>
+      _$TemperatureFromJson(json);
 
   final double value;
 
@@ -36,7 +37,8 @@ class Weather extends Equatable {
     required this.temperature,
   });
 
-  factory Weather.fromJson(Map<String, dynamic> json) => _$WeatherFromJson(json);
+  factory Weather.fromJson(Map<String, dynamic> json) =>
+      _$WeatherFromJson(json);
 
   factory Weather.fromRepository(weather_repository.Weather weather) {
     return Weather(
