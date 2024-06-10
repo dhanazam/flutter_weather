@@ -28,7 +28,7 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) => $checkedCreate(
       ($checkedConvert) {
         final val = Weather(
           condition: $checkedConvert(
-              'condition', (v) => Weather.fromJson(v as Map<String, dynamic>)),
+              'condition', (v) => $enumDecode(_$WeatherConditionEnumMap, v)),
           lastUpdated: $checkedConvert(
               'last_updated', (v) => DateTime.parse(v as String)),
           location: $checkedConvert('location', (v) => v as String),
@@ -41,8 +41,16 @@ Weather _$WeatherFromJson(Map<String, dynamic> json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$WeatherToJson(Weather instance) => <String, dynamic>{
-      'condition': instance.condition.toJson(),
+      'condition': _$WeatherConditionEnumMap[instance.condition]!,
       'last_updated': instance.lastUpdated.toIso8601String(),
       'location': instance.location,
       'temperature': instance.temperature.toJson(),
     };
+
+const _$WeatherConditionEnumMap = {
+  WeatherCondition.clear: 'clear',
+  WeatherCondition.rainy: 'rainy',
+  WeatherCondition.cloudy: 'cloudy',
+  WeatherCondition.snowy: 'snowy',
+  WeatherCondition.unknown: 'unknown',
+};
