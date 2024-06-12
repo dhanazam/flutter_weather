@@ -51,7 +51,7 @@ class OpenMeteoApiClient {
 
   // Fetches [Weather] for given [latitude] and [longitude]
   Future<Weather> getWeather ({required double latitude, required double longitude}) async {
-    final weatherRequest = Uri.https(_baseUrlWeather, 'v1/forecast', {'latitude': '$latitude', 'longitude': '$longitude', 'current_weather': true});
+    final weatherRequest = Uri.https(_baseUrlWeather, 'v1/forecast', { 'latitude': '$latitude', 'longitude': '$longitude', 'current_weather': 'true'});
 
     final weatherResponse = await _httpClient.get(weatherRequest);
 
@@ -61,7 +61,7 @@ class OpenMeteoApiClient {
 
     final bodyJson = jsonDecode(weatherResponse.body) as Map<String, dynamic>;
 
-    if(!bodyJson.containsKey('current_weatther')) {
+    if(!bodyJson.containsKey('current_weather')) {
       throw WeatherNotFoundFailure();
     };
 

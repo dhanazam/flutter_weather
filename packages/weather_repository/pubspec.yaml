@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   equatable: ^2.0.5
+  flutter:
+    sdk: flutter
   json_annotation: ^4.6.0
   open_meteo_api:
     path: ../open_meteo_api
