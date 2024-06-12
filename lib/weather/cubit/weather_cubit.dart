@@ -84,10 +84,7 @@ class WeatherCubit extends HydratedCubit<WeatherState> {
   WeatherState? fromJson(Map<String, dynamic> json) => WeatherState.fromJson(json);
 
   @override
-  Map<String, dynamic>? toJson(WeatherState state) {
-    // TODO: implement toJson
-    throw UnimplementedError();
-  }
+  Map<String, dynamic>? toJson(WeatherState state) => state.toJson();
 }
 
 extension on double {
