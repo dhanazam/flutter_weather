@@ -10,7 +10,7 @@ class LocationFailure implements Exception {}
 /// Exception thrown when the provided location is not found.
 class LocationNotFoundFailure implements Exception {}
 
-/// Eception thrown when the provided location is not found.
+/// Exception thrown when the provided location is not found.
 class WeatherRequestFailure implements Exception {}
 
 /// Exception thrown when weather for provided location is not found.
